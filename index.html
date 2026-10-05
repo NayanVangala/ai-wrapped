@@ -140,7 +140,14 @@ button,input,textarea{font-family:"Archivo",sans-serif}
 .slide.active .heat i,.slide.active .month i{animation:bar-h .9s var(--ease) both;animation-delay:calc(var(--i,0)*40ms)}
 @keyframes bar-w{to{width:var(--w)}}
 @keyframes bar-h{to{height:var(--h)}}
-@media(prefers-reduced-motion:reduce){.stat-chip,.marquee-track,.preloader-fill,.num-col-inner,.slide.active .motion,.slide.active h2,.slide.leaving,.slide.active .track i,.slide.active .heat i,.slide.active .month i{animation:none!important}.preloader{transition:none}.motion{opacity:1!important;filter:none!important;transform:none!important}.slide.active h2{clip-path:none!important}}
+.slide.invert{background:var(--light,#EDEFEF);color:#080808}
+.emblem-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%}
+.emblem{max-width:100%;font-family:Archivo,"Inter Tight",sans-serif;font-weight:800;font-size:min(17vw,24rem);line-height:.84;letter-spacing:-.06em;text-transform:uppercase;text-align:center;color:#080808}
+.emblem-sub{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.35em;margin-top:3vh;color:#666F76;text-transform:uppercase;text-align:center}
+.slide.active .emblem{animation:emblem-in 1.2s var(--ease,cubic-bezier(0.22,1,0.36,1)) both}
+@keyframes emblem-in{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@media(max-width:640px){.emblem{font-size:min(18vw,7.2rem)}.emblem-sub{font-size:9px;line-height:1.6;letter-spacing:.22em}}
+@media(prefers-reduced-motion:reduce){.stat-chip,.marquee-track,.preloader-fill,.num-col-inner,.slide.active .motion,.slide.active h2,.slide.leaving,.slide.active .track i,.slide.active .heat i,.slide.active .month i,.slide.active .emblem{animation:none!important}.preloader{transition:none}.motion{opacity:1!important;filter:none!important;transform:none!important}.slide.active h2{clip-path:none!important}}
 </style>
 </head>
 <body>
@@ -164,6 +171,7 @@ button,input,textarea{font-family:"Archivo",sans-serif}
  <article class="slide theme-invert topics-slide has-marquee"><div class="inner"><div class="kicker">06 / WHAT PULLED YOU IN</div><h2>Your recurring worlds.</h2><div class="topic-list" id="topics"></div><div class="marquee"><div class="marquee-track" id="topicMarquee"></div></div></div></article>
  <article class="slide personality-slide"><div class="inner"><div class="kicker">07 / DEEP CUTS</div><h2 id="personality">The Curious Builder</h2><p class="sub" id="personalityText"></p><div class="callout"><strong>First conversation</strong><p id="firstConversation"></p></div><div class="quiet-note"><b>Longest conversation</b> · <span id="longestConversation"></span></div></div></article>
  <article class="slide theme-invert"><div class="inner share-layout"><div><div class="kicker">08 / THAT’S A WRAP</div><h2>Your year,<br><em>in one card.</em></h2><p class="sub">Download it. Keep the stats, not the raw conversations.</p><button class="btn" id="downloadCard" style="margin-top:24px">Download share card</button><canvas id="cardCanvas" width="1080" height="1350" hidden></canvas></div><div class="share-card"><div class="title">MY AI<br>WRAPPED</div><div class="persona" id="sharePersona">CURIOUS BUILDER</div><div class="share-mini"><div><b id="shareTokens">0</b><span>EST. TOKENS</span></div><div><b id="shareModel">—</b><span>FAVORITE MODEL</span></div><div><b id="shareHour">—</b><span>PEAK HOUR</span></div><div><b id="shareStreak">0</b><span>DAY STREAK</span></div></div></div></div></article>
+ <article class="slide invert emblem-slide"><div class="inner emblem-wrap"><div class="emblem">AI<br>WRAPPED</div><p class="emblem-sub">YOUR YEAR WITH ARTIFICIAL INTELLIGENCE</p></div></article>
  <button class="exit" id="exit">← START OVER</button><nav class="nav" aria-label="Story navigation"><button id="prev" aria-label="Previous slide">←</button><button id="next" aria-label="Next slide">→</button></nav>
 </section>
 </main>
