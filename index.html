@@ -147,6 +147,21 @@ button,input,textarea{font-family:"Archivo",sans-serif}
 .slide.active .emblem{animation:emblem-in 1.2s var(--ease,cubic-bezier(0.22,1,0.36,1)) both}
 @keyframes emblem-in{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
 @media(max-width:640px){.emblem{font-size:min(18vw,7.2rem)}.emblem-sub{font-size:9px;line-height:1.6;letter-spacing:.22em}}
+/* Restrained micro-interactions: tactile feedback without breaking the monochrome system. */
+.btn,.file::file-selector-button{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+.btn:hover,.btn:focus-visible{background:var(--bg);color:var(--fg);border-color:var(--fg);transform:translateY(-1px)}
+.btn.ghost:hover,.btn.ghost:focus-visible{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.hot:hover,.btn.hot:focus-visible{background:#E1E5E5;color:#080808;border-color:#E1E5E5}
+.file::file-selector-button:hover{background:#080808;color:#E1E5E5;border-color:#E1E5E5;transform:translateY(-1px)}
+.nav button{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+#prev:hover,#prev:focus-visible{transform:translateX(-4px)}
+#next:hover,#next:focus-visible{transform:translateX(4px)}
+.source,.stat,.topic,.topic-rank{border:1px solid transparent;transition:border-color .2s ease,transform .2s ease}
+.source:hover,.source:focus-within,.stat:hover,.topic:hover,.topic-rank:hover{border-color:rgba(224,227,227,.48);transform:translateY(-2px)}
+.theme-invert .stat:hover,.theme-invert .topic:hover,.theme-invert .topic-rank:hover{border-color:rgba(8,8,8,.42)}
+.exit{transition:color .2s ease,border-color .2s ease,transform .2s ease}
+.exit:hover,.exit:focus-visible{color:#E1E5E5;border-color:rgba(224,227,227,.55);transform:translateX(-4px)}
+.btn:focus-visible,.nav button:focus-visible,.exit:focus-visible{outline:1px solid currentColor;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.stat-chip,.marquee-track,.preloader-fill,.num-col-inner,.slide.active .motion,.slide.active h2,.slide.leaving,.slide.active .track i,.slide.active .heat i,.slide.active .month i,.slide.active .emblem{animation:none!important}.preloader{transition:none}.motion{opacity:1!important;filter:none!important;transform:none!important}.slide.active h2{clip-path:none!important}}
 </style>
 </head>
